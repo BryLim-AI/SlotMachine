@@ -4,4 +4,6 @@
     <string name="btnDraw">Bet 5</string>
     <string name="btnBet">Bet 10</string>
     <string name="BetDisplay">You Have 5 Coins</string>
+    <string name="Welcome">Welcome to Apple Slot Machine!</string>
+    <string name="start">Start Game</string>
 </resources>

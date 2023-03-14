@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".GameActivity">
 
     <TextView
         android:id="@+id/TopDisplay"
@@ -22,21 +22,21 @@
         android:id="@+id/BetDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Your bet 5 Pesos"
+        android:layout_marginTop="29dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img2" />
+        app:layout_constraintTop_toBottomOf="@+id/img3" />
 
     <Button
         android:id="@+id/btnBet10"
         android:layout_width="137dp"
         android:layout_height="59dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/btnBet"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.675"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BetDisplay" />
 
@@ -44,44 +44,44 @@
         android:id="@+id/btnBet5"
         android:layout_width="137dp"
         android:layout_height="59dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/btnDraw"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BetDisplay" />
 
     <ImageView
-        android:id="@+id/img2"
-        style='@style/ImageSizeLand'
-        android:layout_marginTop="12dp"
+        android:id="@+id/img1"
+        style='@style/ImageSize'
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TopDisplay"
-        app:srcCompat="@drawable/empty"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/img2"
+        style='@style/ImageSize'
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="142dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img1"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/img3"
-        style='@style/ImageSizeLand'
-        android:layout_marginTop="12dp"
+        style='@style/ImageSize'
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="142dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TopDisplay"
-        app:srcCompat="@drawable/empty"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/img1"
-        style='@style/ImageSizeLand'
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TopDisplay"
-        app:srcCompat="@drawable/empty"
+        app:layout_constraintTop_toBottomOf="@+id/img2"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

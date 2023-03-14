@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
-import com.example.slotmachine.databinding.ActivityMainBinding
+import com.example.slotmachine.databinding.ActivityGameBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class GameActivity : AppCompatActivity() {
     //using lazy init.
     private val btnBet5 by lazy { binding.btnBet5}
     private val btnBet10 by lazy { binding.btnBet10}
@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var images: IntArray
     private lateinit var message:String
     private  var betCoins: Int = 10
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityGameBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
         // initImageView()
         message = savedInstanceState?.getString(MESSAGE) ?: "Show that APPLE"
