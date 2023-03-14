@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SlotMachine</string>
+    <string name="displayValue">Show that Apple!</string>
+    <string name="btnDraw">Bet 5</string>
+    <string name="btnBet">Bet 10</string>
+    <string name="BetDisplay">You Have 5 Coins</string>
+</resources>
