@@ -1,8 +1,11 @@
 package com.example.slotmachine
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.ImageView
 import com.example.slotmachine.databinding.ActivityGameBinding
 import com.google.android.material.snackbar.Snackbar
@@ -21,12 +24,16 @@ class GameActivity : AppCompatActivity() {
     private lateinit var message:String
     private  var betCoins: Int = 10
     private lateinit var binding: ActivityGameBinding
-
+    private lateinit var  extra:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //data from mainActivity
+        //if null show that apple.
+        extra = intent.getStringExtra(HEADER)?:getString(R.string.displayValue)
+
         // initImageView()
         message = savedInstanceState?.getString(MESSAGE) ?: "Show that APPLE"
         //if it is null/empty return 3 empty images.
@@ -94,8 +101,23 @@ class GameActivity : AppCompatActivity() {
                 Snackbar.make(it, "You don't have enough coins", Snackbar.LENGTH_SHORT).show()
             }
         }
-        Log.i(SHOW_IMAGE_TAG,"onCreate Fires!")
+         // Log.i(SHOW_IMAGE_TAG,"onCreate Fires!")
     }
+
+    override fun finish() {
+
+        //send back data to the main activity
+        val data = Intent()
+        data.putExtra(RETURN_KEY,getString(R.string.thankyou))
+        setResult(Activity.RESULT_OK,data)
+        super.finish()
+    }
+
+    // menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_game,menu)
+        return super.onCreateOptionsMenu(menu)
+    }// https://youtu.be/VzUjz9xdVDI?t=1098
 
     override fun onSaveInstanceState(outState: Bundle) {
         //save state
@@ -143,7 +165,7 @@ class GameActivity : AppCompatActivity() {
             1 -> message = "Nice one..."
             2 -> message = "Good for Two"
             3 -> message = "Lucky Three!"
-            else -> message = "Show that APPLE"
+            else -> message = extra
         }
         topDisplay.text = message
     }
