@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.Toast
 import com.example.slotmachine.databinding.ActivityGameBinding
 import com.google.android.material.snackbar.Snackbar
+import java.util.Calendar
 import kotlin.random.Random
 
 class GameActivity : AppCompatActivity() {
@@ -33,7 +36,6 @@ class GameActivity : AppCompatActivity() {
         //data from mainActivity
         //if null show that apple.
         extra = intent.getStringExtra(HEADER)?:getString(R.string.displayValue)
-
         // initImageView()
         message = savedInstanceState?.getString(MESSAGE) ?: "Show that APPLE"
         //if it is null/empty return 3 empty images.
@@ -103,7 +105,6 @@ class GameActivity : AppCompatActivity() {
         }
          // Log.i(SHOW_IMAGE_TAG,"onCreate Fires!")
     }
-
     override fun finish() {
 
         //send back data to the main activity
@@ -118,6 +119,23 @@ class GameActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_game,menu)
         return super.onCreateOptionsMenu(menu)
     }// https://youtu.be/VzUjz9xdVDI?t=1098
+
+    //menu function.
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.itemshare){
+            val intent = Intent().apply{
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT,"Lucky Apple Slot Machine: \n" +
+                        "You Draw: ${getAppleCount().toString()} apple(s) \n" +
+                        "on ${Calendar.getInstance().time}")
+                type="text/plain"
+            }
+            startActivity(intent)
+
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         //save state

@@ -17,12 +17,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnStart.setOnClickListener{
             val intent = Intent(this, GameActivity::class.java)//launching of activity.
             intent.putExtra(HEADER,getString(R.string.pressBet))
-           startActivityForResult(intent, REQUEST_CODE)
-
-            //startActivity(intent)
-            // https://youtu.be/VzUjz9xdVDI?t=663
+            startActivityForResult(intent, REQUEST_CODE)
         }
-        // to transfer data to from the game Activity
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
