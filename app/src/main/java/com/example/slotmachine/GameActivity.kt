@@ -67,7 +67,7 @@ class GameActivity : AppCompatActivity() {
                 displayScore()
             }
 
-            if(betCoins === 0){
+            if(betCoins <= 0){
                 btnBet5.isEnabled = false
                 btnBet10.isEnabled = false
                 betDisplay.text = "You Lose!"
@@ -96,7 +96,7 @@ class GameActivity : AppCompatActivity() {
                 displayScore()
             }
 
-            if(betCoins === 0){
+            if(betCoins <= 0){
                 btnBet5.isEnabled = false
                 btnBet10.isEnabled = false
                 betDisplay.text = "You Lose!"
@@ -131,7 +131,7 @@ class GameActivity : AppCompatActivity() {
                 type="text/plain"
             }
             startActivity(intent)
-
+            Snackbar.make(binding.root, "Message Sent", Snackbar.LENGTH_SHORT).show()
             return true
         }
         return super.onOptionsItemSelected(item)
