@@ -7,3 +7,4 @@ const val SCORE: Int = 10
 const val HEADER = "header"
 const val REQUEST_CODE = 1
 const val RETURN_KEY = "Return"
+const val COINS_VAL = 10
